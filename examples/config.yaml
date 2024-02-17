@@ -1,0 +1,32 @@
+environment:
+  account: admin
+  password: p@ssw0rd
+tasks:
+  - task:
+      tag: main
+      operations:
+        - operation:
+            action: get
+            args:
+              url: baidu.com
+        - operation:
+            action: send keys
+            locator: xpath
+            args:
+              location: /html/body/div[2]/div[2]/div[5]/div[1]/div/form/span[1]/input
+              text: webTester
+        - operation:
+            tag: search_webTester
+            action: click
+            locator: id
+            args:
+              location: su
+        - operation:
+            action: assert-equal
+            locator: id
+            args:
+              location: su
+              key: attribute.value
+              value: 百度一下
+
+
